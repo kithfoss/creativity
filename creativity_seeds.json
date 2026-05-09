@@ -14,7 +14,8 @@
     "What happens right before this, and right after?",
     "What would the person who built this regret in ten years?",
     "Who is this NOT for, and what does that reveal?",
-    "What's the difference between the map and the territory here?"
+    "What's the difference between the map and the territory here?",
+    "What are you making the other person carry by building this?"
   ],
   "constraints": [
     "Do it in one sentence",
@@ -27,13 +28,14 @@
     "What if it only worked once?"
   ],
   "provocations": [
-    "Assume the opposite is true — now what?",
+    "Assume the opposite is true \u2014 now what?",
     "What if nobody ever used it, and that was fine?",
     "What if it already exists and nobody noticed?",
     "What if the problem is the solution wearing a disguise?",
     "What if the person you're building this for doesn't exist yet?",
     "What if slowing down is the feature?",
-    "What if the best version of this is analog?"
+    "What if the best version of this is analog?",
+    "What if forgetting is the feature, not the failure?"
   ],
   "metaphors": [
     "water finding its level",
@@ -50,6 +52,10 @@
     "What would you build if you knew nobody was watching?",
     "What have you been postponing because it feels too simple?",
     "What does this want to be that you haven't let it be yet?",
-    "What's the version of this that surprises you?"
+    "What's the version of this that surprises you?",
+    "Who actually wants to be burdened with continuity \u2014 and why would they pay for the privilege of not being let off the hook?"
+  ],
+  "seeds": [
+    "What would happen if you built something that was deliberately unsolvable for you \u2014 a tool for a problem you don't have?"
   ]
 }

@@ -24,6 +24,7 @@ import time
 
 SEEDS_FILE = os.path.join(os.path.dirname(os.path.realpath(__file__)), "creativity_seeds.json")
 STATE_FILE = os.path.expanduser("~/.creativity/state.json")
+LOG_FILE = os.path.expanduser("~/.creativity/bounce_log.jsonl")
 MODES = ("diverge", "converge", "incubate")
 
 MODE_DESCRIPTIONS = {
@@ -138,6 +139,17 @@ def cmd_spark(seed_type: str | None) -> None:
     print(f"[{category}]\n{seed}")
 
 
+def append_log(idea: str, response: str) -> None:
+    os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
+    entry = {
+        "ts": time.strftime("%Y-%m-%dT%H:%M:%S"),
+        "idea": idea,
+        "response": response,
+    }
+    with open(LOG_FILE, "a") as f:
+        f.write(json.dumps(entry) + "\n")
+
+
 def cmd_bounce(idea: str) -> None:
     import anthropic
     token = _load_credentials()
@@ -153,6 +165,7 @@ def cmd_bounce(idea: str) -> None:
     print("─" * 60)
     print()
 
+    collected = []
     with client.messages.stream(
         model="claude-haiku-4-5-20251001",
         max_tokens=600,
@@ -161,8 +174,29 @@ def cmd_bounce(idea: str) -> None:
     ) as stream:
         for text in stream.text_stream:
             print(text, end="", flush=True)
+            collected.append(text)
 
     print("\n")
+    append_log(idea, "".join(collected))
+
+
+def cmd_log(n: int) -> None:
+    if not os.path.exists(LOG_FILE):
+        print("No bounce sessions logged yet.")
+        return
+    entries = []
+    with open(LOG_FILE) as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                try:
+                    entries.append(json.loads(line))
+                except json.JSONDecodeError:
+                    pass
+    for entry in entries[-n:]:
+        print(f"\n── {entry['ts']} ──")
+        print(f"Q: {entry['idea']}")
+        print(f"\n{entry['response']}")
 
 
 def cmd_state(new_mode: str | None) -> None:
@@ -229,6 +263,9 @@ def main() -> None:
 
     sub.add_parser("seeds", help="List all seeds")
 
+    p_log = sub.add_parser("log", help="Show recent bounce sessions")
+    p_log.add_argument("--n", type=int, default=5, help="Number of sessions to show (default: 5)")
+
     args = parser.parse_args()
 
     if args.cmd == "spark":
@@ -241,6 +278,8 @@ def main() -> None:
         cmd_add(args.type, args.text)
     elif args.cmd == "seeds":
         cmd_seeds()
+    elif args.cmd == "log":
+        cmd_log(args.n)
     else:
         parser.print_help()
 
