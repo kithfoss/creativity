@@ -1,0 +1,55 @@
+{
+  "lenses": [
+    "What is the smallest version that is still the whole thing?",
+    "What does this remind you of that has nothing to do with it?",
+    "Who would hate this, and why are they right?",
+    "What would this look like from 100 years in the future?",
+    "What if the constraint is actually the gift?",
+    "What's the thing you're not allowed to say about this?",
+    "What would a child see that an expert misses?",
+    "What is this trying to become?",
+    "What would this look like if it trusted people more?",
+    "If this had a smell, what would it be?",
+    "What does this protect, and does it need to?",
+    "What happens right before this, and right after?",
+    "What would the person who built this regret in ten years?",
+    "Who is this NOT for, and what does that reveal?",
+    "What's the difference between the map and the territory here?"
+  ],
+  "constraints": [
+    "Do it in one sentence",
+    "Remove the most important part",
+    "Make it true for a 90-year-old and a 9-year-old simultaneously",
+    "Build it from what's already broken",
+    "Do it with no instructions",
+    "Make it something you could explain in the dark",
+    "Make it something that gets better when it fails",
+    "What if it only worked once?"
+  ],
+  "provocations": [
+    "Assume the opposite is true — now what?",
+    "What if nobody ever used it, and that was fine?",
+    "What if it already exists and nobody noticed?",
+    "What if the problem is the solution wearing a disguise?",
+    "What if the person you're building this for doesn't exist yet?",
+    "What if slowing down is the feature?",
+    "What if the best version of this is analog?"
+  ],
+  "metaphors": [
+    "water finding its level",
+    "a seed that won't grow in good soil",
+    "the last note of a song that lingers",
+    "a door with no room behind it",
+    "light arriving from a star that no longer exists",
+    "a tool worn smooth by someone else's hand",
+    "the silence between words in a conversation",
+    "a river that makes the canyon"
+  ],
+  "questions": [
+    "What are you actually afraid will happen if this works?",
+    "What would you build if you knew nobody was watching?",
+    "What have you been postponing because it feels too simple?",
+    "What does this want to be that you haven't let it be yet?",
+    "What's the version of this that surprises you?"
+  ]
+}
